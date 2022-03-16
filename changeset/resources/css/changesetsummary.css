@@ -1,0 +1,26 @@
+.changeset-summary, .changeset-summary .x-panel-body {
+    background-color: #eee;
+}
+
+.changeset-summary {
+    border-color: #999;
+}
+
+.changeset-summary p {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.changeset-summary .x-toolbar-docked-bottom {
+    border: 0;
+    background-color: transparent;
+}
+
+.changeset-summary .x-toolbar-docked-bottom .x-toolbar-item {
+    background-color: #aaa;
+    font-size: 12px;
+}
+
+.changeset-summary .x-toolbar-docked-bottom .x-toolbar-item:hover {
+    cursor: default;
+}

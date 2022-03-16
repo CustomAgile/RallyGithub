@@ -1,0 +1,7 @@
+.changeset-add-comment {
+    border-color: #999;
+}
+
+.changeset-add-comment .x-panel, .changeset-add-comment .x-panel-body {
+    background-color: #eee
+}

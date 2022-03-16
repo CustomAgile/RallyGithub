@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RallyGithub</title>
+
+    <script type="text/javascript" src="/apps/2.0p2/sdk.js"></script>
+
+    <script type="text/javascript">
+        Rally.onReady(function() {
+            var q=null;window.PR_SHOULD_USE_CONTINUATION=!0;
+            (function(){function L(a){function m(a){var f=a.charCodeAt(0);if(f!==92)return f;var b=a.charAt(1);return(f=r[b])?f:"0"<=b&&b<="7"?parseInt(a.substring(1),8):b==="u"||b==="x"?parseInt(a.substring(2),16):a.charCodeAt(1)}function e(a){if(a<32)return(a<16?"\\x0":"\\x")+a.toString(16);a=String.fromCharCode(a);if(a==="\\"||a==="-"||a==="["||a==="]")a="\\"+a;return a}function h(a){for(var f=a.substring(1,a.length-1).match(/\\u[\dA-Fa-f]{4}|\\x[\dA-Fa-f]{2}|\\[0-3][0-7]{0,2}|\\[0-7]{1,2}|\\[\S\s]|[^\\]/g),a=
+            [],b=[],o=f[0]==="^",c=o?1:0,i=f.length;c<i;++c){var j=f[c];if(/\\[bdsw]/i.test(j))a.push(j);else{var j=m(j),d;c+2<i&&"-"===f[c+1]?(d=m(f[c+2]),c+=2):d=j;b.push([j,d]);d<65||j>122||(d<65||j>90||b.push([Math.max(65,j)|32,Math.min(d,90)|32]),d<97||j>122||b.push([Math.max(97,j)&-33,Math.min(d,122)&-33]))}}b.sort(function(a,f){return a[0]-f[0]||f[1]-a[1]});f=[];j=[NaN,NaN];for(c=0;c<b.length;++c)i=b[c],i[0]<=j[1]+1?j[1]=Math.max(j[1],i[1]):f.push(j=i);b=["["];o&&b.push("^");b.push.apply(b,a);for(c=0;c<
+            f.length;++c)i=f[c],b.push(e(i[0])),i[1]>i[0]&&(i[1]+1>i[0]&&b.push("-"),b.push(e(i[1])));b.push("]");return b.join("")}function y(a){for(var f=a.source.match(/\[(?:[^\\\]]|\\[\S\s])*]|\\u[\dA-Fa-f]{4}|\\x[\dA-Fa-f]{2}|\\\d+|\\[^\dux]|\(\?[!:=]|[()^]|[^()[\\^]+/g),b=f.length,d=[],c=0,i=0;c<b;++c){var j=f[c];j==="("?++i:"\\"===j.charAt(0)&&(j=+j.substring(1))&&j<=i&&(d[j]=-1)}for(c=1;c<d.length;++c)-1===d[c]&&(d[c]=++t);for(i=c=0;c<b;++c)j=f[c],j==="("?(++i,d[i]===void 0&&(f[c]="(?:")):"\\"===j.charAt(0)&&
+            (j=+j.substring(1))&&j<=i&&(f[c]="\\"+d[i]);for(i=c=0;c<b;++c)"^"===f[c]&&"^"!==f[c+1]&&(f[c]="");if(a.ignoreCase&&s)for(c=0;c<b;++c)j=f[c],a=j.charAt(0),j.length>=2&&a==="["?f[c]=h(j):a!=="\\"&&(f[c]=j.replace(/[A-Za-z]/g,function(a){a=a.charCodeAt(0);return"["+String.fromCharCode(a&-33,a|32)+"]"}));return f.join("")}for(var t=0,s=!1,l=!1,p=0,d=a.length;p<d;++p){var g=a[p];if(g.ignoreCase)l=!0;else if(/[a-z]/i.test(g.source.replace(/\\u[\da-f]{4}|\\x[\da-f]{2}|\\[^UXux]/gi,""))){s=!0;l=!1;break}}for(var r=
+            {b:8,t:9,n:10,v:11,f:12,r:13},n=[],p=0,d=a.length;p<d;++p){g=a[p];if(g.global||g.multiline)throw Error(""+g);n.push("(?:"+y(g)+")")}return RegExp(n.join("|"),l?"gi":"g")}function M(a){function m(a){switch(a.nodeType){case 1:if(e.test(a.className))break;for(var g=a.firstChild;g;g=g.nextSibling)m(g);g=a.nodeName;if("BR"===g||"LI"===g)h[s]="\n",t[s<<1]=y++,t[s++<<1|1]=a;break;case 3:case 4:g=a.nodeValue,g.length&&(g=p?g.replace(/\r\n?/g,"\n"):g.replace(/[\t\n\r ]+/g," "),h[s]=g,t[s<<1]=y,y+=g.length,
+            t[s++<<1|1]=a)}}var e=/(?:^|\s)nocode(?:\s|$)/,h=[],y=0,t=[],s=0,l;a.currentStyle?l=a.currentStyle.whiteSpace:window.getComputedStyle&&(l=document.defaultView.getComputedStyle(a,q).getPropertyValue("white-space"));var p=l&&"pre"===l.substring(0,3);m(a);return{a:h.join("").replace(/\n$/,""),c:t}}function B(a,m,e,h){m&&(a={a:m,d:a},e(a),h.push.apply(h,a.e))}function x(a,m){function e(a){for(var l=a.d,p=[l,"pln"],d=0,g=a.a.match(y)||[],r={},n=0,z=g.length;n<z;++n){var f=g[n],b=r[f],o=void 0,c;if(typeof b===
+            "string")c=!1;else{var i=h[f.charAt(0)];if(i)o=f.match(i[1]),b=i[0];else{for(c=0;c<t;++c)if(i=m[c],o=f.match(i[1])){b=i[0];break}o||(b="pln")}if((c=b.length>=5&&"lang-"===b.substring(0,5))&&!(o&&typeof o[1]==="string"))c=!1,b="src";c||(r[f]=b)}i=d;d+=f.length;if(c){c=o[1];var j=f.indexOf(c),k=j+c.length;o[2]&&(k=f.length-o[2].length,j=k-c.length);b=b.substring(5);B(l+i,f.substring(0,j),e,p);B(l+i+j,c,C(b,c),p);B(l+i+k,f.substring(k),e,p)}else p.push(l+i,b)}a.e=p}var h={},y;(function(){for(var e=a.concat(m),
+            l=[],p={},d=0,g=e.length;d<g;++d){var r=e[d],n=r[3];if(n)for(var k=n.length;--k>=0;)h[n.charAt(k)]=r;r=r[1];n=""+r;p.hasOwnProperty(n)||(l.push(r),p[n]=q)}l.push(/[\S\s]/);y=L(l)})();var t=m.length;return e}function u(a){var m=[],e=[];a.tripleQuotedStrings?m.push(["str",/^(?:'''(?:[^'\\]|\\[\S\s]|''?(?=[^']))*(?:'''|$)|"""(?:[^"\\]|\\[\S\s]|""?(?=[^"]))*(?:"""|$)|'(?:[^'\\]|\\[\S\s])*(?:'|$)|"(?:[^"\\]|\\[\S\s])*(?:"|$))/,q,"'\""]):a.multiLineStrings?m.push(["str",/^(?:'(?:[^'\\]|\\[\S\s])*(?:'|$)|"(?:[^"\\]|\\[\S\s])*(?:"|$)|`(?:[^\\`]|\\[\S\s])*(?:`|$))/,
+            q,"'\"`"]):m.push(["str",/^(?:'(?:[^\n\r'\\]|\\.)*(?:'|$)|"(?:[^\n\r"\\]|\\.)*(?:"|$))/,q,"\"'"]);a.verbatimStrings&&e.push(["str",/^@"(?:[^"]|"")*(?:"|$)/,q]);var h=a.hashComments;h&&(a.cStyleComments?(h>1?m.push(["com",/^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/,q,"#"]):m.push(["com",/^#(?:(?:define|elif|else|endif|error|ifdef|include|ifndef|line|pragma|undef|warning)\b|[^\n\r]*)/,q,"#"]),e.push(["str",/^<(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\w-]+\.h|[a-z]\w*)>/,q])):m.push(["com",/^#[^\n\r]*/,
+            q,"#"]));a.cStyleComments&&(e.push(["com",/^\/\/[^\n\r]*/,q]),e.push(["com",/^\/\*[\S\s]*?(?:\*\/|$)/,q]));a.regexLiterals&&e.push(["lang-regex",/^(?:^^\.?|[!+-]|!=|!==|#|%|%=|&|&&|&&=|&=|\(|\*|\*=|\+=|,|-=|->|\/|\/=|:|::|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|[?@[^]|\^=|\^\^|\^\^=|{|\||\|=|\|\||\|\|=|~|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\s*(\/(?=[^*/])(?:[^/[\\]|\\[\S\s]|\[(?:[^\\\]]|\\[\S\s])*(?:]|$))+\/)/]);(h=a.types)&&e.push(["typ",h]);a=(""+a.keywords).replace(/^ | $/g,
+            "");a.length&&e.push(["kwd",RegExp("^(?:"+a.replace(/[\s,]+/g,"|")+")\\b"),q]);m.push(["pln",/^\s+/,q," \r\n\t\xa0"]);e.push(["lit",/^@[$_a-z][\w$@]*/i,q],["typ",/^(?:[@_]?[A-Z]+[a-z][\w$@]*|\w+_t\b)/,q],["pln",/^[$_a-z][\w$@]*/i,q],["lit",/^(?:0x[\da-f]+|(?:\d(?:_\d+)*\d*(?:\.\d*)?|\.\d\+)(?:e[+-]?\d+)?)[a-z]*/i,q,"0123456789"],["pln",/^\\[\S\s]?/,q],["pun",/^.[^\s\w"-$'./@\\`]*/,q]);return x(m,e)}function D(a,m){function e(a){switch(a.nodeType){case 1:if(k.test(a.className))break;if("BR"===a.nodeName)h(a),
+            a.parentNode&&a.parentNode.removeChild(a);else for(a=a.firstChild;a;a=a.nextSibling)e(a);break;case 3:case 4:if(p){var b=a.nodeValue,d=b.match(t);if(d){var c=b.substring(0,d.index);a.nodeValue=c;(b=b.substring(d.index+d[0].length))&&a.parentNode.insertBefore(s.createTextNode(b),a.nextSibling);h(a);c||a.parentNode.removeChild(a)}}}}function h(a){function b(a,d){var e=d?a.cloneNode(!1):a,f=a.parentNode;if(f){var f=b(f,1),g=a.nextSibling;f.appendChild(e);for(var h=g;h;h=g)g=h.nextSibling,f.appendChild(h)}return e}
+            for(;!a.nextSibling;)if(a=a.parentNode,!a)return;for(var a=b(a.nextSibling,0),e;(e=a.parentNode)&&e.nodeType===1;)a=e;d.push(a)}var k=/(?:^|\s)nocode(?:\s|$)/,t=/\r\n?|\n/,s=a.ownerDocument,l;a.currentStyle?l=a.currentStyle.whiteSpace:window.getComputedStyle&&(l=s.defaultView.getComputedStyle(a,q).getPropertyValue("white-space"));var p=l&&"pre"===l.substring(0,3);for(l=s.createElement("LI");a.firstChild;)l.appendChild(a.firstChild);for(var d=[l],g=0;g<d.length;++g)e(d[g]);m===(m|0)&&d[0].setAttribute("value",
+            m);var r=s.createElement("OL");r.className="linenums";for(var n=Math.max(0,m-1|0)||0,g=0,z=d.length;g<z;++g)l=d[g],l.className="L"+(g+n)%10,l.firstChild||l.appendChild(s.createTextNode("\xa0")),r.appendChild(l);a.appendChild(r)}function k(a,m){for(var e=m.length;--e>=0;){var h=m[e];A.hasOwnProperty(h)?window.console&&console.warn("cannot override language handler %s",h):A[h]=a}}function C(a,m){if(!a||!A.hasOwnProperty(a))a=/^\s*</.test(m)?"default-markup":"default-code";return A[a]}function E(a){var m=
+            a.g;try{var e=M(a.h),h=e.a;a.a=h;a.c=e.c;a.d=0;C(m,h)(a);var k=/\bMSIE\b/.test(navigator.userAgent),m=/\n/g,t=a.a,s=t.length,e=0,l=a.c,p=l.length,h=0,d=a.e,g=d.length,a=0;d[g]=s;var r,n;for(n=r=0;n<g;)d[n]!==d[n+2]?(d[r++]=d[n++],d[r++]=d[n++]):n+=2;g=r;for(n=r=0;n<g;){for(var z=d[n],f=d[n+1],b=n+2;b+2<=g&&d[b+1]===f;)b+=2;d[r++]=z;d[r++]=f;n=b}for(d.length=r;h<p;){var o=l[h+2]||s,c=d[a+2]||s,b=Math.min(o,c),i=l[h+1],j;if(i.nodeType!==1&&(j=t.substring(e,b))){k&&(j=j.replace(m,"\r"));i.nodeValue=
+            j;var u=i.ownerDocument,v=u.createElement("SPAN");v.className=d[a+1];var x=i.parentNode;x.replaceChild(v,i);v.appendChild(i);e<o&&(l[h+1]=i=u.createTextNode(t.substring(b,o)),x.insertBefore(i,v.nextSibling))}e=b;e>=o&&(h+=2);e>=c&&(a+=2)}}catch(w){"console"in window&&console.log(w&&w.stack?w.stack:w)}}var v=["break,continue,do,else,for,if,return,while"],w=[[v,"auto,case,char,const,default,double,enum,extern,float,goto,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile"],
+            "catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof"],F=[w,"alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,dynamic_cast,explicit,export,friend,inline,late_check,mutable,namespace,nullptr,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where"],G=[w,"abstract,boolean,byte,extends,final,finally,implements,import,instanceof,null,native,package,strictfp,super,synchronized,throws,transient"],
+            H=[G,"as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,interface,internal,into,is,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var"],w=[w,"debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN"],I=[v,"and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None"],
+            J=[v,"alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END"],v=[v,"case,done,elif,esac,eval,fi,function,in,local,set,then,until"],K=/^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)\d*)/,N=/\S/,O=u({keywords:[F,H,w,"caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END"+
+            I,J,v],hashComments:!0,cStyleComments:!0,multiLineStrings:!0,regexLiterals:!0}),A={};k(O,["default-code"]);k(x([],[["pln",/^[^<?]+/],["dec",/^<!\w[^>]*(?:>|$)/],["com",/^<\!--[\S\s]*?(?:--\>|$)/],["lang-",/^<\?([\S\s]+?)(?:\?>|$)/],["lang-",/^<%([\S\s]+?)(?:%>|$)/],["pun",/^(?:<[%?]|[%?]>)/],["lang-",/^<xmp\b[^>]*>([\S\s]+?)<\/xmp\b[^>]*>/i],["lang-js",/^<script\b[^>]*>([\S\s]*?)(<\/script\b[^>]*>)/i],["lang-css",/^<style\b[^>]*>([\S\s]*?)(<\/style\b[^>]*>)/i],["lang-in.tag",/^(<\/?[a-z][^<>]*>)/i]]),
+            ["default-markup","htm","html","mxml","xhtml","xml","xsl"]);k(x([["pln",/^\s+/,q," \t\r\n"],["atv",/^(?:"[^"]*"?|'[^']*'?)/,q,"\"'"]],[["tag",/^^<\/?[a-z](?:[\w-.:]*\w)?|\/?>$/i],["atn",/^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i],["lang-uq.val",/^=\s*([^\s"'>]*(?:[^\s"'/>]|\/(?=\s)))/],["pun",/^[/<->]+/],["lang-js",/^on\w+\s*=\s*"([^"]+)"/i],["lang-js",/^on\w+\s*=\s*'([^']+)'/i],["lang-js",/^on\w+\s*=\s*([^\s"'>]+)/i],["lang-css",/^style\s*=\s*"([^"]+)"/i],["lang-css",/^style\s*=\s*'([^']+)'/i],["lang-css",
+            /^style\s*=\s*([^\s"'>]+)/i]]),["in.tag"]);k(x([],[["atv",/^[\S\s]+/]]),["uq.val"]);k(u({keywords:F,hashComments:!0,cStyleComments:!0,types:K}),["c","cc","cpp","cxx","cyc","m"]);k(u({keywords:"null,true,false"}),["json"]);k(u({keywords:H,hashComments:!0,cStyleComments:!0,verbatimStrings:!0,types:K}),["cs"]);k(u({keywords:G,cStyleComments:!0}),["java"]);k(u({keywords:v,hashComments:!0,multiLineStrings:!0}),["bsh","csh","sh"]);k(u({keywords:I,hashComments:!0,multiLineStrings:!0,tripleQuotedStrings:!0}),
+            ["cv","py"]);k(u({keywords:"caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END",hashComments:!0,multiLineStrings:!0,regexLiterals:!0}),["perl","pl","pm"]);k(u({keywords:J,hashComments:!0,multiLineStrings:!0,regexLiterals:!0}),["rb"]);k(u({keywords:w,cStyleComments:!0,regexLiterals:!0}),["js"]);k(u({keywords:"all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,true,try,unless,until,when,while,yes",
+            hashComments:3,cStyleComments:!0,multilineStrings:!0,tripleQuotedStrings:!0,regexLiterals:!0}),["coffee"]);k(x([],[["str",/^[\S\s]+/]]),["regex"]);window.prettyPrintOne=function(a,m,e){var h=document.createElement("PRE");h.innerHTML=a;e&&D(h,e);E({g:m,i:e,h:h});return h.innerHTML};window.prettyPrint=function(a){function m(){for(var e=window.PR_SHOULD_USE_CONTINUATION?l.now()+250:Infinity;p<h.length&&l.now()<e;p++){var n=h[p],k=n.className;if(k.indexOf("prettyprint")>=0){var k=k.match(g),f,b;if(b=
+            !k){b=n;for(var o=void 0,c=b.firstChild;c;c=c.nextSibling)var i=c.nodeType,o=i===1?o?b:c:i===3?N.test(c.nodeValue)?b:o:o;b=(f=o===b?void 0:o)&&"CODE"===f.tagName}b&&(k=f.className.match(g));k&&(k=k[1]);b=!1;for(o=n.parentNode;o;o=o.parentNode)if((o.tagName==="pre"||o.tagName==="code"||o.tagName==="xmp")&&o.className&&o.className.indexOf("prettyprint")>=0){b=!0;break}b||((b=(b=n.className.match(/\blinenums\b(?::(\d+))?/))?b[1]&&b[1].length?+b[1]:!0:!1)&&D(n,b),d={g:k,h:n,i:b},E(d))}}p<h.length?setTimeout(m,
+            250):a&&a()}for(var e=[document.getElementsByTagName("pre"),document.getElementsByTagName("code"),document.getElementsByTagName("xmp")],h=[],k=0;k<e.length;++k)for(var t=0,s=e[k].length;t<s;++t)h.push(e[k][t]);var e=q,l=Date;l.now||(l={now:function(){return+new Date}});var p=0,d,g=/\blang(?:uage)?-([\w.]+)(?!\S)/;m()};window.PR={createSimpleLexer:x,registerLangHandler:k,sourceDecorator:u,PR_ATTRIB_NAME:"atn",PR_ATTRIB_VALUE:"atv",PR_COMMENT:"com",PR_DECLARATION:"dec",PR_KEYWORD:"kwd",PR_LITERAL:"lit",
+            PR_NOCODE:"nocode",PR_PLAIN:"pln",PR_PUNCTUATION:"pun",PR_SOURCE:"src",PR_STRING:"str",PR_TAG:"tag",PR_TYPE:"typ"}})();
+            Ext.define('changeset.model.Branch', {
+                extend: 'Ext.data.Model',
+                idProperty: 'name',
+                fields: [
+                    {name: 'commit', type: 'object'},
+                    {name: 'name', type: 'string'}
+                ]
+            });            Ext.define('changeset.model.Comment', {
+                extend: 'Ext.data.Model',
+                fields: [
+                    {name: 'revision', type: 'string'},
+                    {name: 'filename', type: 'string'},
+                    {name: 'lineNumber', type: 'string'},
+                    {name: 'user', type: 'object'},
+                    {name: 'avatarUrl', type: 'string'},
+                    {name: 'comment', type: 'string'},
+                    {name: 'timestamp', type: 'date'}
+                ]
+            });            Ext.define('changeset.model.Commit', {
+                extend: 'Ext.data.Model',
+                idProperty: 'revision',
+                fields: [
+                    {name: 'revision', type: 'string'},
+                    {name: 'url', type: 'string'},
+                    {name: 'author', type: 'object'},
+                    {name: 'avatarUrl', type: 'string'},
+                    {name: 'timestamp', type: 'date'},
+                    {name: 'message', type: 'string'},
+                    {name: 'tree', type: 'object'},
+                    {name: 'parents', type: 'array'}
+                ]
+            });            Ext.define('changeset.model.ChangesetFile', {
+                extend: 'Ext.data.Model',
+                fields: [
+                    {name: 'status', type: 'string'},
+                    {name: 'filename', type: 'string'},
+                    {name: 'url', type: 'string'},
+                    {name: 'deletions', type: 'integer'},
+                    {name: 'additions', type: 'integer'},
+                    {name: 'changes', type: 'integer'},
+                    {name: 'diff', type: 'string'}
+                ]
+            });            Ext.define('changeset.model.Organization', {
+                extend: 'Ext.data.Model',
+                idProperty: 'login',
+                fields: [
+                    {name: 'url', type: 'string'},
+                    {name: 'login', type: 'string'}
+                ]
+            });            Ext.define('changeset.model.Repository', {
+                extend: 'Ext.data.Model',
+                idProperty: 'name',
+                fields: [
+                    {name: 'url', type: 'string'},
+                    {name: 'name', type: 'string'}
+                ]
+            });            /**
+             * Lookup comment records by path and line number.
+             */
+            Ext.define('changeset.data.CommentLocator', {
+            
+                /**
+                 * @param {Ext.data.Store} store A store that loads {changeset.model.Comment} records.
+                 */
+                constructor: function(store) {
+                    this.comments = this._getKeyedComments(store);
+                },
+                
+                /**
+                 * Returns comments that are located at a specific diff line.
+                 * 
+                 * @param {String} path File path.
+                 * @param {String|Int} lineNumber Line number.
+                 * @return {Array} of {changeset.model.Comment}
+                 */
+                getComments: function(path, lineNumber) {
+                    var key = this._getCommentKey(path, lineNumber);
+                    return this.comments[key] || null;
+                },
+                
+                _getCommentKey: function(path, lineNumber) {
+                    return path + ':' + lineNumber.toString();
+                },
+                
+                _getKeyedComments: function(store) {
+                    var comments = {};
+                    store.each(function(record) {
+                        var key = this._getCommentKey(record.get('filename'), record.get('lineNumber'));
+                        if (!comments.hasOwnProperty(key)) {
+                            comments[key] = [];
+                        }
+                        comments[key].push(record);
+                    }, this);
+                    return comments;
+                }
+            });            Ext.define('changeset.data.github.Proxy', {
+                extend: 'Ext.data.proxy.Rest',
+            
+                statics: {
+                    // extract functions are used to normalize data objects coming in from the server
+                    extractCommitValues: function(data) {
+                        var output = {
+                            revision: data.sha,
+                            url: data.url,
+                            author: data.author,
+                            avatarUrl: data.author ? data.author.avatar_url : null,
+                            parents: data.parents
+                        };
+            
+                        var commit = data.commit;
+                        if (commit) {
+                            Ext.apply(output, commit);
+                            output.timestamp = commit.author.date;
+                        }
+                        return output;
+                    },
+            
+                    extractChangesetFileValues: function(data) {
+                        var output = {
+                            status: data.status,
+                            filename: data.filename,
+                            url: data.raw_url,
+                            deletions: data.deletions,
+                            additions: data.additions,
+                            changes: data.changes,
+                            diff: data.patch
+                        };
+                        return output;
+                    },
+                    
+                    extractCommentValues: function(data) {
+                        var output = {
+                            revision: data.commit_id,
+                            filename: data.path,
+                            lineNumber: data.position,
+                            comment: data.body,
+                            timestamp: data.created_at,
+                            user: data.user,
+                            avatarUrl: data.user ? data.user.avatar_url : null
+                        };
+                        return output;
+                    }
+                },
+            
+                cors: true,
+                stripRallyHeaders: true,
+                pageParam: 'page',
+                limitParam: 'per_page',
+                startParam: undefined
+            });            /**
+             * Adapter classes contain methods to construct Store objects for use by ui components.
+             */
+            Ext.define('changeset.data.github.Adapter', {
+                require: [
+                    'changeset.model.Changeset',
+                    'changeset.model.Comment',
+                    'changeset.data.github.Proxy',
+                    'changeset.data.github.CommitStore'
+                ],
+                mixins: {
+                    observable: 'Ext.util.Observable',
+                    stateful: 'Ext.state.Stateful'
+                },
+            
+                /**
+                 * @cfg {String}
+                 * Github username
+                 */
+                username: null,
+            
+                /**
+                 * @cfg {changeset.model.Repository}
+                 * @private
+                 * Github repository
+                 */
+                repository: null,
+            
+                /**
+                 * @cfg {String}
+                 * @private
+                 * OAuth token for Github api
+                 */
+                authToken: null,
+            
+                /**
+                 * @cfg {changeset.model.Branch}
+                 * Branch to grab commits from
+                 * @private
+                 */
+                branch: null,
+            
+                /**
+                 * @cfg {String}
+                 * Base url for all Github api requests.
+                 */
+                apiUrl: 'https://api.github.com',
+            
+                /**
+                 * @cfg {Int}
+                 * Page size to use for api calls.
+                 */
+                pageSize: 100,
+            
+                // these configs setup statefullness
+                stateful: true,
+                stateEvents: ['ready', 'statechange'],
+            
+                constructor: function(config) {
+                    Ext.apply(this, config);
+            
+                    var urlParts = window.location.href.split('?');
+                    this.stateId = 'githubAdapter-' + urlParts[0];
+                    if (urlParts.length > 1) {
+                        var urlParams = Ext.Object.fromQueryString(urlParts[1]);
+                        this.stateId += '-' + urlParams.panelOid || 'page';
+                    }
+            
+                    this.addEvents(
+                        /**
+                         * @event
+                         * Fired when the adapter is ready to be used.
+                         * @param {changeset.data.github.Adapter}
+                         */
+                        'ready',
+                        /**
+                         * @event
+                         * Fired when the adapter needs authentication.
+                         * @param {changeset.data.github.Adapter}
+                         */
+                        'authenticationrequired',
+                        /**
+                         * @event
+                         * Fired when the state needs to be saved.
+                         * @param {changeset.data.github.Adapter}
+                         */
+                        'statechange'
+                    );
+            
+                    this.mixins.observable.constructor.apply(this, arguments);
+                    this.mixins.stateful.constructor.apply(this, arguments);
+            
+                    Ext.Ajax.on('beforerequest', this._onBeforeAjaxRequest, this);
+                    Ext.Ajax.on('requestexception', this._onAjaxRequestException, this);
+            
+                    this._init();
+                },
+            
+                /**
+                 * Get the current state.
+                 * @return {Object}
+                 */
+                getState: function() {
+                    return {
+                        username: this.username,
+                        authToken: this.authToken,
+                        repository: this.repository,
+                        organization: this.organization,
+                        branch: this.branch
+                    };
+                },
+            
+                /**
+                 * Get an appropriate login message
+                 * @return {String}
+                 */
+                getLoginMessage: function() {
+                    return 'Login to your GitHub account';
+                },
+            
+                /**
+                 * Get the currently logged in user's username
+                 * @return {String}
+                 */
+                getUserName: function() {
+                    return this.username;
+                },
+            
+                /**
+                 * Return a url to the repository.
+                 * @return {String}
+                 */
+                getRepositoryUrl: function() {
+                    return 'https://github.com/' + this._getRepoPath();
+                },
+            
+                /*
+                 * Gets the currently selected repository.
+                 * @return {Object}
+                 */
+                getRepository: function() {
+                    return this.repository;
+                },
+            
+                /*
+                 * Set the repository to fetch data from.
+                 * @param {changeset.model.Repository}
+                 */
+                setRepository: function(repository) {
+                    if( !this.repository || this.repository.name !== repository.get('name') ) {
+                        this.branch = null;
+                    }
+                    this.repository = repository.raw;
+                    this.fireEvent('statechange', this);
+                },
+            
+                /*
+                 * Gets the currently selected organization.
+                 * @return {Object}
+                 */
+                getOrganization: function() {
+                    return this.organization;
+                },
+            
+                /*
+                 * Set the repository to fetch data from.
+                 * @param {changeset.model.Repository}
+                 */
+                setOrganization: function(organization) {
+                    if (!this.organization || this.organization.login !== organization.get('login')) {
+                        this.repository = null;
+                        this.branch = null;
+                    }
+                    this.organization = organization.raw || organization.data;
+                    this.fireEvent('statechange', this);
+                },
+            
+                /*
+                 * Gets the currently selected branch.
+                 * @return {Object}
+                 */
+                getBranch: function() {
+                    return this.branch;
+                },
+            
+                /*
+                 * Set the branch to fetch data from.
+                 * @param {changeset.model.Branch}
+                 */
+                setBranch: function(branch) {
+                    this.branch = branch.raw;
+                    this.fireEvent('statechange', this);
+                },
+            
+                /**
+                 * Constructs a store which populates organization models.
+                 * @param {Function} callback Function to call after store is created.
+                 * @param {Object} scope Scope to execute callback with.
+                 */
+                getOrganizationStore: function(callback, scope) {
+                    var url = [
+                        this.apiUrl,
+                        'users',
+                        this.username,
+                        'orgs'
+                    ].join('/');
+            
+                    var store = Ext.create('Ext.data.Store', {
+                        model: 'changeset.model.Organization',
+                        proxy: Ext.create('changeset.data.github.Proxy', {
+                            url: url
+                        })
+                    });
+            
+                    callback.call(scope, store);
+                },
+            
+                /**
+                 * Constructs a store which populates repository models.
+                 * @param {Function} callback Function to call after store is created.
+                 * @param {Object} scope Scope to execute callback with.
+                 */
+                getRepositoryStore: function(callback, scope) {
+                    var url = [this.apiUrl];
+            
+                    if (this.organization.url) {
+                        url = url.concat([
+                            'orgs',
+                            this.organization.login,
+                            'repos'
+                        ]);
+                    } else {
+                        url = url.concat([
+                            'user',
+                            'repos'
+                        ]);
+                    }
+            
+                    var store = Ext.create('Ext.data.Store', {
+                        model: 'changeset.model.Repository',
+                        proxy: Ext.create('changeset.data.github.Proxy', {
+                            url: url.join('/')
+                        }),
+                        buffered: true,
+                        pageSize: this.pageSize,
+                        listeners: {
+                            load: {
+                                fn: function(store, records, successful, eOpts) {
+                                    if (successful && records.length === store.pageSize) {
+                                        store.prefetchPage(store.currentPage + 1);
+                                        return false;
+                                    }
+                                },
+                                single: true
+                            },
+                            prefetch: function(store, records, successful, operation, eOpts) {
+                                if (successful) {
+                                    store.add(records);
+                                    if (records.length === store.pageSize) {
+                                        store.prefetchPage(store.currentPage + 1);
+                                    } else {
+                                        store.fireEvent('load');
+                                    }
+                                }
+                            }
+                        }
+                    });
+            
+                    callback.call(scope, store);
+                },
+            
+                /**
+                 * Constructs a store which populates branch models.
+                 * @param {Function} callback Function to call after store is created.
+                 * @param {Object} scope Scope to execute callback with.
+                 */
+                getBranchStore: function(callback, scope) {
+                    var url = [
+                        this.apiUrl,
+                        'repos',
+                        this._getRepoPath(),
+                        'branches'
+                    ].join('/');
+            
+                    var store = Ext.create('Ext.data.Store', {
+                        model: 'changeset.model.Branch',
+                        proxy: Ext.create('changeset.data.github.Proxy', {
+                            url: url
+                        })
+                    });
+            
+                    callback.call(scope, store);
+                },
+            
+                /**
+                 * Returns a store which populates commit models.
+                 * @param {Function} callback Function to call after store is created.
+                 * @param {Object} scope Scope to execute callback with.
+                 */
+                getCommitStore: function(callback, scope) {
+                    this.getBranchStore(function(store) {
+                        store.on('load', function(store) {
+                            this._onBranchLoad(store, callback, scope);
+                        }, this, {single: true});
+                        store.load();
+                    }, this);
+                },
+            
+                /**
+                 * Returns a store which populates changeset models.
+                 * @param {changeset.model.Commit} record Commit to get changeset for.
+                 * @param {Function} callback Function to call after store is created.
+                 * @param {Object} scope Scope to execute callback with.
+                 */
+                getChangesetStore: function(record, callback, scope) {
+                    if (record.get('parents').length < 1) {
+                        callback.call(scope, null);
+                        return;
+                    }
+            
+                    var url = [
+                        this.apiUrl,
+                        'repos',
+                        this._getRepoPath(),
+                        'compare',
+                        record.get('parents')[0].sha + '...' + record.get('revision')
+                    ].join('/');
+            
+                    var store = Ext.create('Ext.data.Store', {
+                        model: 'changeset.model.ChangesetFile',
+                        proxy: Ext.create('changeset.data.github.Proxy', {
+                            url: url,
+                            reader: {
+                                type: 'json',
+                                root: 'files',
+                                extractValues: changeset.data.github.Proxy.extractChangesetFileValues
+                            }
+                        })
+                    });
+            
+                    callback.call(scope, store);
+                },
+                
+                /**
+                 * Returns a store which populates comment models.
+                 * @param {changeset.model.Commit} record Commit record to retrieve comments for.
+                 * @param {Function} callback Function to call after store is created.
+                 * @param {Object} scope Scope to execute callback with.
+                 */
+                getCommentStore: function(record, callback, scope) {
+                    var url = [
+                        this.apiUrl,
+                        'repos',
+                        this._getRepoPath(),
+                        'commits',
+                        record.get('revision'),
+                        'comments'
+                    ].join('/');
+            
+                    var store = Ext.create('Ext.data.Store', {
+                        model: 'changeset.model.Comment',
+                        pageSize: this.pageSize,
+                        proxy: Ext.create('changeset.data.github.Proxy', {
+                            url: url,
+                            reader: {
+                                type: 'json',
+                                extractValues: changeset.data.github.Proxy.extractCommentValues
+                            }
+                        })
+                    });
+            
+                    callback.call(scope, store);
+                },
+            
+                /**
+                 * Saves a comment
+                 * 
+                 * @param data {Object} The comment data to save
+                 * @param callback {Function} The callback to be executed when the save is complete.
+                 * @param scope {Object} The scope to execute the callback in.
+                 */
+                saveComment: function(data, callback, scope) {
+                    var url = [
+                        this.apiUrl,
+                        'repos',
+                        this._getRepoPath(),
+                        'commits',
+                        data.revision,
+                        'comments'
+                    ].join('/');
+            
+                    Ext.Ajax.request({
+                        url: url,
+                        method: 'POST',
+                        jsonData: {
+                            body: data.comment,
+                            commit_id: data.revision,
+                            line: data.lineIdx,
+                            path: data.filename,
+                            position: data.diffIdx
+                        },
+                        success: function(response, opts) {
+                            if (callback) {
+                                var data = Ext.decode(response.responseText);
+                                var record = new changeset.model.Comment(changeset.data.github.Proxy.extractCommentValues(data));
+                                callback.call(scope, record);
+                            }
+                        },
+                        scope: this
+                    });
+                },
+            
+                /**
+                 * Grabs an OAuth token using the passed credentials.
+                 * If this is successful, it will fire the 'ready' event,
+                 * if it fails, it will fire  the 'authenticationrequired' event.
+                 * 
+                 * @param {String} username Username to login with.
+                 * @param {String} password Password to login with.
+                 */
+                authenticate: function(username, password) {
+                    this.username = username;               
+            
+                    Ext.Ajax.request({
+                        url: this.apiUrl + '/authorizations',
+                        method: 'GET',
+                        headers: {
+                            Authorization: this._getBasicAuth(password)
+                        },
+                        success: function(response, opts) {
+                            var data = Ext.decode(response.responseText);
+                            var tokenLength = data.length;
+                            for (var i = 0; i < tokenLength; i++) {
+                                var token = data[i];
+                                if (token.note === 'RallyGithub') {
+                                    this.authToken = token.token;
+                                    this.fireEvent('ready', this);
+                                    return;
+                                }
+                            }
+                            this._getNewToken(password);
+                        },
+                        failure: function(response, opts) {
+                            this.fireEvent('authenticationrequired', this);
+                        },
+                        scope: this
+                    });
+                },
+            
+                /**
+                 * Logs user out of github api.
+                 * 
+                 * Fires 'authenticationrequired'.
+                 */
+                logout: function() {
+                    this.repository = null;
+                    this.organization = null;
+                    this.branch = null;
+                    this.username = null;
+                    this.authToken = null;
+                    Ext.state.Manager.getProvider().clear(this.getStateId());
+                    this.fireEvent('authenticationrequired', this);
+                },
+            
+                /**
+                 * Returns basic authentication details.
+                 */
+                _getBasicAuth: function(password) {
+                    return 'Basic ' + btoa(this.username + ':' + password);
+                },
+            
+                /**
+                 * Creates and uses a new OAuth token.
+                 */
+                _getNewToken: function(password) {
+                    Ext.Ajax.request({
+                        url: this.apiUrl + '/authorizations',
+                        method: 'POST',
+                        headers: {
+                            Authorization: this._getBasicAuth(password)
+                        },
+                        jsonData: {
+                            note: 'RallyGithub',
+                            scopes: ['public_repo', 'repo']
+                        },
+                        success: function(response, opts) {
+                            var data = Ext.decode(response.responseText);
+                            this.authToken = data.token;
+                            this.fireEvent('ready', this);
+                        },
+                        failure: function(response, opts) {
+                            this.fireEvent('authenticationrequired', this);
+                        },
+                        scope: this
+                    });
+                },
+            
+                _getRepoPath: function() {
+                    return this.repository.owner.login + '/' + this.repository.name;
+                },
+            
+                _init: function() {
+                    if (!Ext.isEmpty(this.authToken)) {
+                        this.fireEvent('ready', this);
+                    } else {
+                        this.fireEvent('authenticationrequired', this);
+                    }
+                },
+            
+                _onBeforeAjaxRequest: function(ext, opts) { 
+                    if (Ext.isEmpty(opts.headers)) {
+                        opts.headers = {};
+                    }
+            
+                    if (!opts.headers.hasOwnProperty('Authorization') && this.authToken) {
+                        opts.headers.Authorization = 'token ' + this.authToken;
+                    }
+                },
+            
+                _onAjaxRequestException: function(conn, response, options, eOpts) {
+                    if (response.status === 401) {
+                        this.fireEvent('authenticationrequired', this);
+                    }
+                },
+            
+                _onBranchLoad: function(store, callback, scope) {
+                    var url = [
+                        this.apiUrl,
+                        'repos',
+                        this._getRepoPath(),
+                        'commits'
+                    ].join('/');
+            
+                    var commitStore = Ext.create('changeset.data.github.CommitStore', {
+                        startSha: this.branch.commit.sha,
+                        pageSize: this.pageSize,
+                        clearOnPageLoad: false,
+                        filterOnLoad: false,
+                        proxy: Ext.create('changeset.data.github.Proxy', {
+                             url: url,
+                             reader: {
+                                 type: 'json',
+                                 extractValues: changeset.data.github.Proxy.extractCommitValues
+                             }
+                         })
+                    });
+            
+                    callback.call(scope, commitStore);
+                },
+            
+                _getChangeset: function(record, callback, scope) {
+                    var url = [
+                        this.apiUrl,
+                        'repos',
+                        this._getRepoPath(),
+                        'compare',
+                        record.get('parents')[0].sha + '...' + record.get('revision')
+                    ].join('/');
+            
+                    Ext.Ajax.request({
+                        url: url,
+                        method: 'GET',
+                        jsonData: {},
+                        success: function(response, opts) {
+                            var data = Ext.decode(response.responseText);
+                            callback.call(scope, data);
+                        },
+                        scope: this
+                    });
+                }
+            });            /**
+             * Store for loading {changeset.model.Commit} records from Github.
+             */
+            Ext.define('changeset.data.github.CommitStore', {
+                extend: 'Ext.data.Store',
+                require: [
+                    'changeset.model.Commit',
+                    'changeset.data.github.Proxy'
+                ],
+            
+                model: 'changeset.model.Commit',
+            
+                constructor: function() {
+                    this.callParent(arguments);
+                    this.on('beforeload', function(store, operation, eOpts) {
+                        this._addShaToOptions(1);
+                    }, this, {single:true});
+                },
+            
+                /**
+                 * Github's commit endpoint's paging is a little funky.
+                 *
+                 * You must specify a sha to page to,
+                 * instead of a normal page number.
+                 */
+                loadPage: function(page, options) {
+                    this._addShaToOptions(page);
+                    var result = this.callParent(arguments);
+                    return result;
+                },
+            
+                /**
+                 * Overridden to remove duplicate row that comes back
+                 * because of API's funky paging.
+                 * @private
+                 */
+                onProxyLoad: function(operation) {
+                    if (operation && operation.page > 1 && operation.resultSet) {
+                        var resultSet = operation.resultSet;
+                        if (resultSet.records && resultSet.records.length > 0) {
+                            resultSet.records.shift();
+                            resultSet.count--;
+                            resultSet.total--;
+                            resultSet.totalRecords--;
+                        }
+                    }
+                    return this.callParent(arguments);
+                },
+            
+                _addShaToOptions: function(page) {
+                    if (this.proxy) {
+                        var sha,
+                            data = this.snapshot || this.data;
+                        if (page === 1) {
+                            sha = this.startSha;
+                        } else {
+                            var lastCommit = data.getAt(data.getCount() - 1);
+                            sha = lastCommit.get('revision');
+                        }
+            
+                        if (!this.proxy.extraParams) {
+                            this.proxy.extraParams = {};
+                        }
+                        this.proxy.extraParams.sha = sha;
+                    }
+                }
+            });            Ext.define('changeset.ui.AddComment', {
+                extend: 'Ext.form.Panel',
+                alias: 'widget.addcomment',
+                cls: 'changeset-add-comment',
+                frame: true,
+                height: 135,
+                layout: 'anchor',
+                defaults: {
+                    anchor: '100%'
+                },
+            
+                adapter: null,
+            
+                items: [{
+                    xtype: 'textarea',
+                    name: 'comment',
+                    allowBlank: false,
+                    height: 90
+                }],
+            
+                buttonAlign: 'center',
+                buttons: [{
+                    xtype: 'rallybutton',
+                    itemId: 'SubmitButton',
+                    text: 'Save'
+                }, {
+                    xtype: 'rallybutton',
+                    itemId: 'CancelButton',
+                    ui: 'link',
+                    text: 'Cancel'
+                }],
+            
+                initComponent: function() {
+                    this.callParent(arguments);
+            
+                    this.addEvents([
+                        /**
+                         * @event
+                         * fired when comment requires persisting.
+                         * @param {Ext.Component}
+                         * @param {String}
+                         */
+                        'save',
+                        /**
+                         * @event
+                         * fired when comment edit is canceled.
+                         * @param {Ext.Component}
+                         */
+                        'cancel'
+                    ]);
+            
+                    this.mon(this.down('#SubmitButton'), 'click', this._onSubmitClick, this);
+                    this.mon(this.down('#CancelButton'), 'click', this._onCancelClick, this);
+                },
+            
+                _onSubmitClick: function() {
+                    if (this.getForm().isValid()) {
+                        var values = this.getValues();
+                        this.fireEvent('save', this, values.comment);
+                    }
+                },
+            
+                _onCancelClick: function() {
+                    this.fireEvent('cancel', this);
+                }
+            });            Ext.define('changeset.ui.Avatar', {
+                extend: 'Ext.Component',
+                alias: 'widget.changesetavatar',
+                cls: 'changeset-avatar',
+                frame: true,
+                border: 0,
+                bodyBorder: false,
+            
+                listeners: {
+                    afterrender: function(cmp) {
+                        var avatarUrl = this.record.get('avatarUrl');
+                        if (!Ext.isEmpty(avatarUrl)) {
+                            avatarUrl += '&s=' + this.getWidth().toString();
+                            cmp.getEl().setStyle('background-image', 'url(' + avatarUrl + ')');
+                        }
+                    }
+                }
+            });            Ext.define('changset.ui.Login', {
+                extend: 'Ext.form.Panel',
+                alias: 'widget.changesetlogin',
+                cls: 'changeset-login',
+                width: 300,
+                height: 135,
+                layout: 'anchor',
+                defaults: {
+                    anchor: '100%'
+                },
+            
+                adapter: null,
+            
+                items: [{
+                    xtype: 'textfield',
+                    fieldLabel: 'Username',
+                    name: 'username',
+                    allowBlank: false
+                },{
+                    xtype: 'textfield',
+                    fieldLabel: 'Password',
+                    name: 'password',
+                    inputType: 'password',
+                    allowBlank: false
+                }],
+            
+                buttonAlign: 'center',
+                buttons: [{
+                    xtype: 'rallybutton',
+                    text: 'Login',
+                    itemId: 'LoginButton'
+                }],
+            
+                initComponent: function() {
+                    this.callParent(arguments);
+                    this.insert(0, {
+                        html: '<span class="login-message">' + this.adapter.getLoginMessage() + '</span>',
+                        border: 0,
+                        margin: '0 0 20 0'
+                    });
+            
+                    this.mon(this.down('#LoginButton'), 'click', this._onSubmit, this);
+                    Ext.each(this.query('textfield'), function(textfield) {
+                        textfield.on('specialkey', function(field, evt) {
+                            if (evt.getKey() === evt.ENTER) {
+                                this._onSubmit();
+                            }
+                        }, this);
+                    }, this);
+                },
+            
+                _onSubmit: function() {
+                    if (this.getForm().isValid()) {
+                        var values = this.getValues();
+                        this.adapter.authenticate(values.username, values.password);
+                    }
+                }
+            });            Ext.define('changset.ui.ChangesetFilter', {
+                extend: 'Ext.form.Panel',
+                alias: 'widget.changesetfilter',
+                cls: 'changeset-filter',
+                border: 0,
+                layout: 'hbox',
+            
+                items: [{
+                    xtype: 'textfield',
+                    itemId: 'FilterText',
+                    name: 'filtertext',
+                    width: 150
+                },{
+                    xtype: 'rallybutton',
+                    itemId: 'FilterButton',
+                    text: 'Filter',
+                    margin: '0 0 0 4'
+                }],
+            
+                constructor: function() {
+                    this.callParent(arguments);
+            
+                    this.addEvents([
+                        /**
+                         * @event
+                         * fired when the filter button is clicked.
+                         * @param {String}
+                         */
+                        'filter'
+                    ]);
+                },
+            
+                initComponent: function() {
+                    this.callParent(arguments);
+            
+                    this.mon(this.down('#FilterButton'), 'click', this._onSubmit, this, {});
+                    this.mon(this.down('#FilterText'), 'specialkey', function(field, evt) {
+                        if (evt.getKey() === evt.ENTER) {
+                            this._onSubmit();
+                        }
+                    }, this);
+                },
+            
+                _onSubmit: function() {
+                    var value = Ext.String.escape(this.down('#FilterText').getValue());
+                    this.fireEvent('filter', value);
+                }
+            });            Ext.define('changeset.ui.ChangesetFileDiff', {
+                extend: 'Ext.panel.Panel',
+                require: ['changeset.ui.ChangesetSummary', 'changeset.ui.AddComment'],
+                alias: 'widget.changesetfilediff',
+                cls: 'changeset-file-diff',
+                bodyBorder: false,
+                dockedItems: [{
+                    xtype: 'toolbar',
+                    itemId: 'topToolbar',
+                    dock: 'top'
+                }],
+            
+                /**
+                 * @cfg
+                 * @private
+                 * 
+                 * Regex used to parse unified diff delimiter.
+                 */
+                unifiedDiffRegex: /^@@\s\-(\d+)(,\d+)?\s\+(\d+)(,\d+)?\s@@/,
+                
+                /**
+                 * @cfg {changeset.data.CommentLocator}
+                 * 
+                 * Used to find comments that need to be rendered at a specific line.
+                 */
+                commentLocator: null,
+            
+                initComponent: function() {
+                    this.callParent(arguments);
+                    var link = Ext.String.format('<a href="{0}" class="changeset-file">{1}</a>',
+                        this.record.get('url'), this.record.get('filename'));
+                    this.getComponent('topToolbar').add([
+                        {
+                            html: link,
+                            listeners: {
+                                afterrender: function(cmp) {
+                                    cmp.getEl().down('.changeset-file').on('click', function(evt) {
+                                        evt.stopEvent();
+                                        window.open(this.record.get('url'), 'changesetFile');
+                                    }, this);
+                                },
+                                scope: this
+                            },
+                            flex: 1
+                        }
+                    ]);
+            
+                    var source = this._renderSourceTable();
+                    this.add({
+                        html: source[0],
+                        autoScroll: true,
+                        border: 0,
+                        listeners: {
+                            afterrender: function(cmp) {
+                                Ext.each(source[1], function(commentConfig){
+                                    Ext.apply(commentConfig, {width: this._getCommentWidth()});
+                                    Ext.create('changeset.ui.ChangesetSummary', commentConfig);
+                                }, this);
+            
+                                cmp.getEl().on('mouseover', this._onLineOver, this, {delegate: '.line-code'});
+                            },
+                            scope: this
+                        }
+                    });
+                },
+            
+                _renderSourceTable: function() {
+                    var diffLines = this.record.get('diff').split("\n");
+                    if (diffLines[diffLines.length - 1] === "\\ No newline at end of file") {
+                        diffLines.pop();
+                    }
+                    var lineDetails,
+                        commentConfigs = [],
+                        tableBody = ['<table><tbody>'];
+                    Ext.each(diffLines, function(line, lineIdx) {
+                        if (!line) {
+                            return;
+                        }
+                        lineDetails = this._getLineDetails(line, lineDetails);
+                        tableBody.push(this._renderDiffLine(line, lineIdx, lineDetails));
+                        var lineComment = this._renderDiffLineComment(lineIdx, commentConfigs);
+                        if (!Ext.isEmpty(lineComment)) {
+                            tableBody.push(lineComment);
+                        }
+                    }, this);
+                    tableBody.push('</tbody></table>');
+                    return [tableBody.join("\n"), commentConfigs];
+                },
+                
+                _renderDiffLine: function (line, lineIdx, lineDetails) {
+                    var row = [Ext.String.format('<tr class="{0} diff-idx-{1}">', lineDetails.lineCls, lineIdx)];
+                    row.push(Ext.String.format('<th>{0}</th>', lineDetails.oldLineSymbol));
+                    row.push(Ext.String.format('<th>{0}</th>', lineDetails.newLineSymbol));
+                    row.push(Ext.String.format('<td><div class="line-wrapper"><pre class="prettyprint">{0}</pre></div></td>',
+                        Ext.htmlEncode(line)));
+                    row.push('</tr>');
+                    return row.join('');
+                },
+                
+                _renderDiffLineComment: function(lineIdx, commentConfigs) {
+                    var comments = this.commentLocator.getComments(
+                        this.record.get('filename'), lineIdx);
+                    
+                    if (!comments) {
+                        return null;
+                    }
+                    
+                    var commentRows = [];
+                    Ext.each(comments, function(comment, idx) {
+                        var commentId = this.record.get('filename') + '-' + lineIdx + '-' + idx,
+                            row = [Ext.String.format('<tr class="line-comment" >')];
+                        row.push('<th colspan="2">comment</th>');
+                        row.push(Ext.String.format('<td><div id="{0}" class="changeset-comment"></div></td>', commentId));
+                        row.push('</tr>');
+                        commentRows.push(row.join(''));
+            
+                        commentConfigs.push({
+                            renderTo: commentId,
+                            record: comment,
+                            messageField: 'comment',
+                            userField: 'user',
+                            userNameField: 'login',
+                            revisionField: 'filename'
+                        });
+                    }, this);
+                    return commentRows.join('\n');
+                },
+            
+                _getLineDetails: function(line, lineDetails) {
+                    var diffMatch = this.unifiedDiffRegex.exec(line);
+                    if (diffMatch) {
+                        lineDetails = {
+                            oldLineNumber: parseInt(diffMatch[1], 10),
+                            newLineNumber: parseInt(diffMatch[3], 10),
+                            oldLineSymbol: 'old',
+                            newLineSymbol: 'new',
+                            lineCls: 'line-diff'
+                        };
+                    } else {
+                        var lineType = this._getLineType(line);
+                        if (lineType === '+') {
+                            this._getChangeDetail(lineDetails, false, true);
+                        } else if (lineType === '-') {
+                            this._getChangeDetail(lineDetails, true, false);
+                        } else {
+                            this._getChangeDetail(lineDetails, true, true);
+                        }
+                    }
+            
+                    return lineDetails;
+                },
+            
+                _getChangeDetail: function(lineDetails, incrementOld, incrementNew) {
+                    lineDetails.lineCls = 'line-equal';
+            
+                    if (incrementOld) {
+                        lineDetails.oldLineSymbol = lineDetails.oldLineNumber.toString();
+                        lineDetails.oldLineNumber++;
+                    } else {
+                        lineDetails.oldLineSymbol = '+';
+                        lineDetails.lineCls = 'line-add';
+                    }
+            
+                    if (incrementNew) {
+                        lineDetails.newLineSymbol = lineDetails.newLineNumber.toString();
+                        lineDetails.newLineNumber++;
+                    } else {
+                        lineDetails.newLineSymbol = '-';
+                        lineDetails.lineCls = 'line-remove';
+                    }
+            
+                    lineDetails.lineCls += ' line-code line-idx-' + lineDetails.newLineNumber.toString();
+                },
+            
+                _getLineType: function(line) {
+                    var marker = line.substring(0,1);
+                    if (marker === '+') {
+                        return marker;
+                    } else if (marker === '-') {
+                        return marker;
+                    }
+            
+                    return '=';
+                },
+            
+                _showAddComment: function(evt, target, options) {
+                    // close existing comment
+                    if (this.addCommentCmp) {
+                        this.addCommentCmp.fireEvent('cancel', this.addCommentCmp);
+                    }
+            
+                    var lineEl = Ext.get(target).up('tr');
+                    var afterEl = lineEl;
+                    var nextTr = lineEl.dom.nextSibling;
+                    while (nextTr && (nextTr.nodeType !== 1 || nextTr.className.match(/line\-comment/))) {
+                        afterEl = Ext.fly(nextTr);
+                        nextTr = nextTr.nextSibling;
+                    }
+            
+                    var commentEl = Ext.DomHelper.insertAfter(afterEl, {
+                        tag: 'tr',
+                        cls: 'line-comment',
+                        html: '<th colspan="2">comment</th><td><div class="changeset-add-comment"></div></td>'
+                    }, true);
+                    commentEl.scrollIntoView(commentEl.up('.x-accordion-body'), false);
+            
+                    this.addCommentCmp = Ext.create('changeset.ui.AddComment', {
+                        renderTo: commentEl.down('.changeset-add-comment'),
+                        margin: 5,
+                        width: this._getCommentWidth(),
+                        listeners: {
+                            save: Ext.bind(this._onSaveComment, this, [lineEl], true),
+                            cancel: this._onCancelComment,
+                            afterrender: function() {
+                                this.doLayout();
+                            },
+                            destroy: function() {
+                                this.addCommentCmp = null;
+                            },
+                            scope: this
+                        }
+                    });
+                },
+            
+                _getCommentWidth: function() {
+                    var borderWidth = 1,
+                        borderCount = 5,
+                        thWidth = 35,
+                        thCount = 2,
+                        paddingWidth = 5;
+                    return this.getWidth() - (borderWidth * borderCount) - (thWidth * thCount) - (paddingWidth * 2);
+                },
+            
+                _onSaveComment: function(cmp, comment, options, lineEl) {
+                    cmp.setLoading(true);
+            
+                    var lineIdx, diffIdx;
+                    Ext.each(lineEl.dom.className.split(' '), function(clsName) {
+                        var lineMatch = clsName.match(/line\-idx\-(\d+)/),
+                            diffMatch = clsName.match(/diff\-idx\-(\d+)/);
+                        if (!Ext.isEmpty(lineMatch)) {
+                            lineIdx = parseInt(lineMatch[1], 10);
+                        } else if (!Ext.isEmpty(diffMatch)) {
+                            diffIdx = parseInt(diffMatch[1], 10);
+                        }
+                    });
+            
+                    var data = {
+                        filename: this.record.get('filename'),
+                        revision: this.up('changeset').record.get('revision'),
+                        lineIdx: lineIdx,
+                        diffIdx: diffIdx,
+                        comment: comment
+                    };
+            
+                    this.adapter.saveComment(data, function(record) {
+                        var commentEl = cmp.getEl().up('td').insertFirst({tag: 'div', cls: 'changeset-comment'});
+                        cmp.destroy();
+            
+                        Ext.create('changeset.ui.ChangesetSummary', {
+                            renderTo: commentEl,
+                            width: this._getCommentWidth(),
+                            record: record,
+                            messageField: 'comment',
+                            userField: 'user',
+                            userNameField: 'login',
+                            revisionField: 'filename',
+                            listeners: {
+                                afterrender: function() {
+                                    this.doLayout();
+                                },
+                                scope: this
+                            }
+                        });
+                    }, this);
+                },
+            
+                _onCancelComment: function(cmp) {
+                    var rowEl = cmp.getEl().up('tr');
+                    cmp.destroy();
+                    rowEl.destroy();
+                    this.doLayout();
+                },
+            
+                _onLineOver: function(evt, target, options) {
+                    var el = Ext.get(target);
+                    el.on('mouseleave', Ext.bind(this._onLineOut, this, [el]), this, {single: true});
+                    el.addCls('line-selected');
+            
+                    var cellEl = el.down('.line-wrapper');
+                    var imgEl = cellEl.insertFirst({
+                        tag: 'img',
+                        src: 'https://rally1.rallydev.com/slm/js/alm/resources/themes/images/default/feedback/commentbubble.png',
+                        cls: 'add-comment-icon'
+                    });
+            
+                    imgEl.on('mouseover', function() {
+                        imgEl.addCls('add-comment-icon-selected');
+                    });
+            
+                    imgEl.on('mouseout', function() {
+                        imgEl.removeCls('add-comment-icon-selected');
+                    });
+            
+                    imgEl.on('click', this._showAddComment, this);
+                },
+            
+                _onLineOut: function(el) {
+                    el.removeCls('line-selected');
+                    var imgEl = el.down('.add-comment-icon');
+                    if (imgEl) {
+                        imgEl.destroy();
+                    }
+                }
+            });            Ext.define('changeset.ui.ChangesetGrid', {
+                extend: 'Rally.ui.grid.Grid',
+                require: [
+                    'Rally.util.Navigation',
+                    'Rally.ui.Button'
+                ],
+                alias: 'widget.changesetgrid',
+                cls: 'changeset-grid',
+            
+                /**
+                 * @cfg
+                 * @private
+                 * 
+                 * Artifact type prefix regexes to match in commit messages.
+                 */
+                artifactRegexes: [
+                    /(DE\d+)/,
+                    /(US\d+)/,
+                    /(TA\d+)/
+                ],
+            
+                columnCfgs: [{
+                    header: 'Message',
+                    dataIndex: 'message',
+                    itemId: 'messageCol',
+                    flex: 1,
+                    renderer: function(value) {
+                        value = Ext.String.htmlEncode(value);
+                        Ext.each(this.artifactRegexes, function(artifactRegex) {
+                            value = value.replace(artifactRegex, '<a href="#" class="artifact-link">$1</a>');
+                        });
+                        return value;
+                    }
+                },{
+                    xtype: 'templatecolumn',
+                    header: 'Author',
+                    tpl: '{author.name}',
+                    flex: 0.3
+                },{
+                    xtype: 'datecolumn',
+                    header: 'Commit Time',
+                    dataIndex: 'timestamp',
+                    format: 'Y-m-d h:i:s A',
+                    width: 160
+                },{
+                    header: 'Revision',
+                    dataIndex: 'revision',
+                    renderer: function(value) {
+                        return Ext.String.format('<a href="#" class="revision-link">{0}</a>', value);
+                    },
+                    width: 85
+                }],
+            
+                buttonAlign: 'center',
+                buttons: [{
+                    xtype: 'rallybutton',
+                    text: 'Load More',
+                    itemId: 'loadButton',
+                    margin: '10 0 0 0',
+                    width: 400
+                }],
+            
+                constructor: function(config) {
+                    config = config || {};
+                    Ext.applyIf(config, {
+                        columnCfgs: this.columnCfgs,
+                        showPagingToolbar: false
+                    });
+                    this.callParent([config]);
+                },
+            
+                initComponent: function() {
+                    this.callParent(arguments);
+                    this.addEvents(
+                        /**
+                         * @event
+                         * fired when a revision is clicked.
+                         * @param {changeset.model.Commit}
+                         */
+                        'revisionClicked',
+                        /**
+                         * @event
+                         * fired when an artifact is clicked.
+                         * @param {String}
+                         */
+                        'artifactClicked'
+                    );
+            
+                    this.on('render', this._onRender, this);
+                    this.down('#loadButton').on('click', this._loadMore, this);
+                    this.mon(this.store, 'load', this._onStoreLoad, this);
+                    this.mon(this.store, 'datachanged', this._onStoreDataChanged, this);
+                },
+            
+                /**
+                 * Set the filter value.
+                 * 
+                 * @param value {String} The value to filter for or {null} for no filter.
+                 */
+                setCommitFilter: function(value) {
+                    var store = this.store;
+                    this.filteredRowCount = null;
+                    if (Ext.isEmpty(value)) {
+                        this.commitFilter = null;
+                        store.clearFilter();
+                    } else {
+                        var regex = new RegExp(value, 'i');
+                        this.commitFilter = {
+                            filterFn: function(record) {
+                                if (regex.test(record.get('message'))) {
+                                    return true;
+                                } else if (regex.test(record.get('author').name)) {
+                                    return true;
+                                } else if (regex.test(record.get('revision'))) {
+                                    return true;
+                                }
+            
+                                return false;
+                            }
+                        };
+            
+                        store.clearFilter(true);
+                        store.filter(this.commitFilter);
+                    }
+                },
+            
+                _loadMore: function() {
+                    if (this.down('#loadButton')) {
+                        var store = this.store;
+                        store.clearFilter(true);
+                        store.nextPage();
+                    }
+                },
+            
+                _onRender: function() {
+                    var el = this.getEl();
+                    el.on('click', this._onArtifactClick, this, {delegate: 'a.artifact-link'});
+                    el.on('click', this._onRevisionClick, this, {delegate: 'a.revision-link'});
+                },
+            
+                _onArtifactClick: function(event, dom, opts) {
+                    this.fireEvent('artifactClicked', dom.innerHTML);
+                },
+            
+                _onRevisionClick: function(event, dom) {
+                    var record = this.store.findRecord('revision', dom.innerHTML);
+                    this.fireEvent('revisionClicked', record);
+                },
+            
+                _onStoreLoad: function(store, records) {
+                    // Scroll to first new row.
+                    if (records.length > 0) {
+                        var rowIdx = store.indexOf(records[0]);
+                        if (rowIdx) {
+                            this.getView().focusRow(rowIdx);
+                        }
+                    }
+            
+                    // If the count is less than the pagesize we've run out of pages.
+                    var pageSize = store.pageSize;
+                    if (store.currentPage > 1) {
+                        pageSize--;
+                    }
+                    if (records.length < pageSize) {
+                        this.down('#loadButton').destroy();
+                    }
+            
+                    if (this.commitFilter) {
+                        store.filter(this.commitFilter);
+                    }
+                },
+            
+                _onStoreDataChanged: function() {
+                    var store = this.store;
+                    if (store.isFiltered()) {
+                        var filteredRowCount = store.data.getCount();
+                        if (filteredRowCount < 1 || (this.filteredRowCount && this.filteredRowCount >= filteredRowCount)) {
+                            this._loadMore();
+                        }
+                        this.filteredRowCount = filteredRowCount;
+                    }
+                }
+            });            Ext.define('changeset.ui.ChangesetFilesGrid', {
+                extend: 'Rally.ui.grid.Grid',
+                alias: 'widget.changesetfilesgrid',
+                cls: 'changeset-files-grid',
+                storeConfig: {
+                    fetch: true,
+                    sorters: [{
+                        property: 'filename',
+                        direction: 'ASC'
+                    }]
+                },
+                columnCfgs: [{
+                    header: 'Status',
+                    dataIndex: 'status',
+                    renderer: function(value) {
+                        return Ext.String.capitalize(value.substring(0,3));
+                    },
+                    width: 50
+                },{
+                    header: 'File',
+                    xtype: 'templatecolumn',
+                    tpl: '<a href="#" class="file-name">{filename}</a>',
+                    flex: 1,
+                    listeners: {
+                        click: function(target, dom, index) {
+                            Ext.query('.changeset-file-diff')[index].scrollIntoView();
+                        }
+                    }
+                },{
+                    header: 'Changes',
+                    dataIndex: 'changes',
+                    width: 65
+                },{
+                    header: 'Additions',
+                    dataIndex: 'additions',
+                    width: 65
+                },{
+                    header: 'Deletions',
+                    dataIndex: 'deletions',
+                    width: 65
+                }],
+            
+                constructor: function(config) {
+                    config = config || {};
+                    Ext.applyIf(config, {
+                        columnCfgs: this.columnCfgs,
+                        storeConfig: this.storeConfig,
+                        showPagingToolbar: false
+                    });
+                    
+                    this.callParent([config]);
+                }
+            });            Ext.define('changeset.ui.ChangesetSummary', {
+                extend: 'Ext.panel.Panel',
+                alias: 'widget.changesetsummary',
+                cls: 'changeset-summary',
+                frame: true,
+                
+                /**
+                 * @cfg
+                 */
+                messageField: 'message',
+                
+                /**
+                 * @cfg
+                 */
+                avatarField: 'avatarUrl',
+                
+                /**
+                 * @cfg
+                 */
+                userField: 'author',
+                
+                /**
+                 * @cfg
+                 */
+                userNameField: 'name',
+                
+                /**
+                 * @cfg
+                 */
+                timestampField: 'timestamp',
+                
+                /**
+                 * @cfg
+                 */
+                revisionField: 'revision',
+                
+                dockedItems: [{
+                    xtype: 'toolbar',
+                    itemId: 'bottomToolbar',
+                    dock: 'bottom',
+                    border: 0
+                }],
+            
+                initComponent: function() {
+                    this.callParent(arguments);
+                    this._initItems();
+                },
+                
+                _initItems: function() {
+                    if (!this.record) {
+                        return;
+                    }
+            
+                    this.html = '<p>' + this.record.get(this.messageField) + '</p>';
+            
+                    var toolbar = this.getComponent('bottomToolbar');
+                    if (!Ext.isEmpty(this.record.get(this.avatarField))) {
+                        toolbar.add([{
+                           margin: '2 6 2 2',
+                           xtype: 'changesetavatar',
+                           record: this.record,
+                           width: 40,
+                           height: 40
+                       }]);
+                    }
+            
+                    toolbar.add([
+                        {
+                            html: this.record.get(this.userField)[this.userNameField]
+                        },{
+                            html: Ext.Date.format(new Date(this.record.get(this.timestampField)), 'Y-m-d h:i:s A')
+                        },{
+                            html: this.record.get(this.revisionField)
+                        }
+                    ]);
+                }
+            });
+            Ext.define('changeset.ui.Changeset', {
+                extend: 'Ext.panel.Panel',
+                require: [
+                    'changeset.data.CommentLocator',
+                    'changeset.ui.ChangesetSummary',
+                    'changeset.ui.ChangesetFileDiff',
+                    'changeset.ui.ChangesetFilesGrid'
+                ],
+                alias: 'widget.changeset',
+                cls: 'changeset',
+            
+                /**
+                 * @cfg
+                 */
+                adapter: null,
+            
+                initComponent: function() {
+                    this.callParent(arguments);
+                    this.on('afterrender', this._renderChangeset, this, {single: true});
+                },
+            
+                _renderChangeset: function() {
+                    if (!this.record) {
+                        return;
+                    }
+            
+                    this.add({
+                        xtype: 'changesetsummary',
+                        margin: 10,
+                        border: 0,
+                        record: this.record
+                    });
+            
+                    if (this.record.get('parents').length > 0) {
+                        this._loadComments();
+                    }
+                },
+                
+                _loadComments: function() {
+                    this.adapter.getCommentStore(this.record, function(store) {
+                        store.on('load', this._onCommentStoreLoad, this);
+                        this.up('panel').setLoading(true, true);
+                        store.load();
+                    }, this);
+                },
+                
+                _onCommentStoreLoad: function(store) {
+                    var commentLocator = new changeset.data.CommentLocator(store);
+                    this.adapter.getChangesetStore(this.record, function(store) {
+                        if (!store) {
+                            return;
+                        }
+                        
+                        var callback = Ext.bind(this._onChangesetStoreLoad, this, [commentLocator], true);
+                        this.mon(store, 'load', callback, this, {single: true});
+                        store.load();
+                    }, this);
+                },
+            
+                _onChangesetStoreLoad: function(store, records, scope, opts, commentLocator) {
+                    var grid = this.insert( 1,
+                        {
+                            xtype: 'changesetfilesgrid',
+                            margin: 10,
+                            border: 0,
+                            store: store
+                        }
+                    );
+            
+                    var addedCount = 0;
+                    store.each(function(record) {
+                        var task = new Ext.util.DelayedTask(function() {
+                            this.add({
+                                xtype: 'changesetfilediff',
+                                margin: 10,
+                                border: 0,
+                                adapter: this.adapter,
+                                record: record,
+                                commentLocator: commentLocator,
+                                listeners: {
+                                    afterrender: {
+                                        fn: function() {
+                                            addedCount++;
+                                            if (addedCount === store.count()) {
+                                                prettyPrint();
+                                                this.up('panel').setLoading(false);
+                                            }
+                                        },
+                                        single: true
+                                    },
+                                    scope: this
+                                }
+                            });
+                        }, this);
+                        task.delay(10);
+                    }, this);
+                }
+            });            Ext.define('changeset.ui.ChangesetBrowser', {
+                extend: 'Ext.panel.Panel',
+                alias: 'widget.changesetbrowser',
+                require: [
+                    'changeset.ui.ChangesetGrid',
+                    'changeset.ui.Changeset',
+                    'changeset.ui.ChangesetFilter',
+                    'Rally.ui.ComboBox',
+                    'Rally.ui.tooltip.ToolTip'
+                ],
+                cls: 'changeset-browser',
+                border: 0,
+                bodyBorder: false,
+            
+                layout: {
+                    type: 'accordion',
+                    animate: true
+                },
+            
+                /**
+                 * @cfg
+                 */
+                adapter: null,
+            
+                initComponent: function() {
+                    this.callParent(arguments);
+                    this._populateToolbar();
+                },
+            
+                _populateToolbar: function() {
+                    this.addDocked({
+                        itemId: 'topToolbar',
+                        dock: 'top',
+                        border: 0,
+                        padding: 5,
+                        layout: 'hbox',
+                        items: [
+                            {
+                                xtype: 'rallybutton',
+                                text: 'Logout',
+                                margin: '0 5 0 0 ',
+                                handler: function() {
+                                    this.adapter.logout();
+                                },
+                                scope: this
+                            }, {
+                                xtype: 'rallybutton',
+                                text: 'Refresh',
+                                margin: '0 5 0 0 ',
+                                handler: function() {
+                                    this.adapter.fireEvent('ready', this.adapter);
+                                },
+                                scope: this
+                            }]
+                    });
+            
+                    this._addOrganizationChooser();
+                },
+            
+                _addOrganizationChooser: function() {
+                    var toolbar = this.down('#topToolbar'),
+                        valueField = 'login';
+            
+                    this.adapter.getOrganizationStore(function(store) {
+                        var combo = toolbar.insert(2, {
+                            xtype: 'rallycombobox',
+                            margin: '0 5 0 0',
+                            store: store,
+                            fieldLabel: 'Org:',
+                            labelWidth: 30,
+                            displayField: valueField,
+                            // allowNoEntry: true,
+                            // noEntryText: this.adapter.getUserName(),
+                            listeners: {
+                                beforeselect: function(combo, record) {
+                                    if (record && record.get('login') !== this.adapter.getOrganization().login) {
+                                        this._onOrganizationSelect(record);
+                                    }
+                                },
+                                scope: this
+                            }
+                        });
+            
+                        store.on('load', function() {
+                            store.insert(0, [{login: this.adapter.getUserName(), url: null}]);
+                            var org = this.adapter.getOrganization(),
+                                selectedOrg = org ? store.findRecord('login', org.login) : store.getAt(0);
+                            combo.select(selectedOrg);
+                            this._onOrganizationSelect(selectedOrg);
+                        }, this, {single: true});
+                        store.load();
+                    }, this);
+                },
+            
+                _onOrganizationSelect: function(organization) {
+                    this.adapter.setOrganization(organization);
+                    this.removeAll();
+                    this._addRepoChooser();
+                },
+            
+                _addRepoChooser: function() {
+                    var toolbar = this.down('#topToolbar'),
+                        valueField = 'name',
+                        combo = toolbar.down('#repoChooser');
+                    if (combo) {
+                        toolbar.remove(combo);
+                    }
+            
+                    this.adapter.getRepositoryStore(function(store) {
+                        var combo = toolbar.insert(3, {
+                            xtype: 'rallycombobox',
+                            itemId: 'repoChooser',
+                            margin: '0 5 0 0',
+                            store: store,
+                            fieldLabel: 'Repo:',
+                            labelWidth: 30,
+                            displayField: valueField,
+                            listeners: {
+                                beforeselect: function(combo, record) {
+                                    if (record && record.get('name') !== this.adapter.getRepository().name) {
+                                        this._onRepositorySelect(record);
+                                    }
+                                },
+                                scope: this
+                            }
+                        });
+            
+                        store.on('load', function() {
+                            var repo = this.adapter.getRepository();
+                            var selectedRepo = repo ? store.findRecord('name', repo.name) : store.getAt(0);
+                            if (selectedRepo) {
+                                combo.select(selectedRepo);
+                                this._onRepositorySelect(selectedRepo);
+                            }
+                        }, this, {single: true});
+            
+                        store.load();
+                    }, this);
+                },
+            
+                _onRepositorySelect: function(repository) {
+                    this.adapter.setRepository(repository);
+                    this.removeAll();
+                    this._addBranchChooser();
+                },
+            
+                _addBranchChooser: function() {
+                    var toolbar = this.down('#topToolbar');
+                    var combo = toolbar.down('#branchChooser');
+                    if (combo) {
+                        toolbar.remove(combo);
+                    }
+            
+                    var valueField = 'name';
+                    this.adapter.getBranchStore(function(store) {
+                        combo = toolbar.insert(4, {
+                            xtype: 'rallycombobox',
+                            itemId: 'branchChooser',
+                            margin: '0 5 0 0',
+                            store: store,
+                            fieldLabel: 'Branch:',
+                            labelWidth: 40,
+                            displayField: valueField,
+                            listeners: {
+                                beforeselect: function(combo, record) {
+                                    if (record && record.get('name') !== this.adapter.getBranch().name) {
+                                        this._onBranchSelect(record);
+                                    }
+                                },
+                                scope: this
+                            }
+                        });
+            
+                        store.on('load', function() {
+                            var currentBranch = this.adapter.getBranch(),
+                                branchName = currentBranch ? currentBranch.name : 'master',
+                                selectedBranch = store.findRecord('name', branchName);
+                            selectedBranch = selectedBranch || store.getAt(0);
+            
+                            combo.select(selectedBranch);
+                            this._onBranchSelect(selectedBranch);
+                        }, this, {single: true});
+                        store.load();
+                    }, this);
+                },
+            
+                _onBranchSelect: function(branch) {
+                    this.adapter.setBranch(branch);
+                    this.removeAll();
+                    this._addFilter();
+                    this._addGrid();
+                },
+            
+                _addFilter: function() {
+                    if (this.down('changesetfilter')) {
+                        return;
+                    }
+            
+                    var toolbar = this.down('#topToolbar');
+                    var filter = toolbar.insert(5, {
+                        xtype: 'changesetfilter',
+                        width: 210,
+                        listeners: {
+                            filter: this._onFilter,
+                            afterrender: function(cmp) {
+                                var tip = Ext.create('Rally.ui.tooltip.ToolTip', {
+                                    target: cmp.getEl(),
+                                    anchor: 'right',
+                                    hideDelay: 0,
+                                    html: 'Filter commits by: <br /> <ul><li>-- message</li><li>-- author</li><li>-- revision</li></ul>'
+                                });
+                            },
+                            scope: this
+                        }
+                    });
+                },
+            
+                _addGrid: function() {
+                    var callback = function(store) {
+                        var grid = this.add({
+                            xtype: 'changesetgrid',
+                            itemId: 'changeSetGrid',
+                            margin: 0,
+                            autoScroll: true,
+                            model: 'changeset.model.Commit',
+                            store: store
+                        });
+                        store.load();
+                        grid.setTitle(Ext.String.format('Commits for <a href="{0}" target="_blank">{1}</a>',
+                                this.adapter.getRepositoryUrl(), this.adapter.getRepository().name));
+                        grid.expand();
+                        this.mon(grid, 'artifactClicked', this._showArtifact, this);
+                        this.mon(grid, 'revisionClicked', this._showRevision, this);
+                    };
+                    this.adapter.getCommitStore(callback, this);
+                },
+            
+                _showArtifact: function(formattedId) {
+                    Ext.data.JsonP.request({
+                        url: Rally.environment.getServer().getWsapiUrl() + '/artifact.js',
+                        method: 'GET',
+                        callbackKey: 'jsonp',
+                        params: {
+                            query: '(FormattedID = ' + formattedId + ')'
+                        },
+                        success: this._onFormattedIdLoad,
+                        scope: this
+                    });
+                },
+            
+                _onFormattedIdLoad: function(result) {
+                    if (result.QueryResult) {
+                        var results = result.QueryResult.Results;
+                        if (results && results.length) {
+                            var ref = results[0]._ref;
+                            var detailLink = Rally.util.Navigation.createRallyDetailUrl(ref);
+                            window.open(detailLink, 'detailpage');
+                        }
+                    }
+                },
+            
+                _showRevision: function(record) {
+                    if (this.items.getCount() > 1) {
+                        this.remove(this.items.getAt(1));
+                    }
+                    var revision = this.add({
+                        xtype: 'changeset',
+                        adapter: this.adapter,
+                        title: 'Revision: ' + record.get('revision'),
+                        autoScroll: true,
+                        record: record
+                    });
+                    revision.expand();
+                },
+            
+                _onFilter: function(value) {
+                    var grid = this.down('#changeSetGrid');
+                    if (grid) {
+                        grid.expand();
+                        grid.setCommitFilter(value);
+                    }
+                }
+            });            Ext.define('CustomApp', {
+                extend: 'Rally.app.App',
+                require: [
+                    'Ext.state.Manager',
+                    'Ext.state.LocalStorageProvider',
+                    'Ext.state.CookieProvider',
+                    'changeset.data.github.Adapter',
+                    'changeset.ui.ChangesetBrowser'
+                ],
+                componentCls: 'app',
+                layout: {
+                    type: 'vbox',
+                    align: 'stretch'
+                },
+            
+                launch: function() {
+                    var provider;
+                    try {
+                        provider = Ext.create('Ext.state.LocalStorageProvider');
+                    } catch (e) {
+                        provider = Ext.create('Ext.state.CookieProvider');
+                    }
+                    Ext.state.Manager.setProvider(provider);
+            
+                    this.adapter = Ext.create('changeset.data.github.Adapter', {
+                        listeners: {
+                            ready: this._onAdapterReady,
+                            authenticationrequired: this._onAuthenticationRequired,
+                            scope: this
+                        }
+                    });
+                },
+            
+                _onAdapterReady: function(adapter) {
+                    this.removeAll();
+                    this.add({
+                        xtype: 'changesetbrowser',
+                        margin: 2,
+                        border: 0,
+                        adapter: adapter,
+                        flex: 1
+                    });
+                },
+            
+                _onAuthenticationRequired: function(adapter) {
+                    this.removeAll();
+                    this.add({
+                        flex: 1,
+                        border: 0,
+                        adapter: adapter,
+                        items: [{
+                            xtype: 'changesetlogin',
+                            border: 0,
+                            adapter: adapter
+                        }]
+                    });
+                }
+            });
+
+            Rally.launchApp('CustomApp', {
+                name: 'RallyGithub'
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        .pln{color:#000}@media screen{.str{color:#080}.kwd{color:#008}.com{color:#800}.typ{color:#606}.lit{color:#066}.pun,.opn,.clo{color:#660}.tag{color:#008}.atn{color:#606}.atv{color:#080}.dec,.var{color:#606}.fun{color:red}}@media print,projection{.str{color:#060}.kwd{color:#006;font-weight:bold}.com{color:#600;font-style:italic}.typ{color:#404;font-weight:bold}.lit{color:#044}.pun,.opn,.clo{color:#440}.tag{color:#006;font-weight:bold}.atn{color:#404}.atv{color:#060}}pre.prettyprint{padding:2px;border:1px solid #888}ol.linenums{margin-top:0;margin-bottom:0}li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style-type:none}li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee}        .changeset-add-comment {
+            border-color: #999;
+        }
+        
+        .changeset-add-comment .x-panel, .changeset-add-comment .x-panel-body {
+            background-color: #eee
+        }        .changeset-file-diff {
+            margin-top: 16px;
+            border: 1px solid #aaa;
+        }
+        
+        .changeset-file-diff table .prettyprint {
+            border: 0;
+        }
+        
+        .changeset-file-diff table {
+            width: 100%;
+        }
+        
+        .changeset-file-diff tr td, .changeset-file-diff tr th {
+            padding: 2px;
+            font-size: 10px;
+        }
+        
+        .changeset-file-diff tr th {
+            text-align: right;
+            background-color: #eee;
+            border-right: 1px solid #aaa;
+            width: 35px;
+        }
+        
+        .changeset-file-diff .x-toolbar.x-docked-top {
+            background-color: #eee;
+        }
+        
+        .changeset-file-diff .x-toolbar.x-docked-top .x-toolbar-item {
+            background: transparent;
+            font-size: 16px;
+            cursor: default;
+        }
+        
+        .changeset-file-diff .line-add, .changeset-file-diff .line-add th {
+            background-color: #DFD;
+        }
+        
+        .changeset-file-diff .line-remove, .changeset-file-diff .line-remove th {
+            background-color: #FDD;
+        }
+        
+        .changeset-file-diff .line-diff, .changeset-file-diff .line-diff th {
+            background-color: #DDF;
+        }
+        
+        .changeset-file-diff .line-comment, .changeset-file-diff .line-comment th {
+            background-color: #fff9b1;
+        }
+        
+        .changeset-file-diff .line-comment {
+            border: 1px solid #aaa;
+            border-left: 0;
+            border-right: 0;
+        }
+        
+        .changeset-file-diff .line-comment th {
+            font-size: 12px;
+        }
+        
+        .changeset-comment {
+            margin: 5px;
+        }
+        
+        .changeset-comment .changeset-summary .x-panel-body {
+            border: 0;
+        }
+        
+        .changeset-file-diff .line-selected, .changeset-file-diff .line-selected th {
+            background: #eff8fb;
+        }
+        
+        .changeset-file-diff .line-wrapper {
+            position: relative;
+        }
+        
+        .changeset-file-diff .add-comment-icon {
+            position: absolute;
+            top: 2px;
+            left: 1px;
+        }
+        
+        .changeset-file-diff .add-comment-icon-selected {
+            cursor: pointer;
+        }        .changeset-login {
+            margin: 10px auto;
+        }
+        
+        .changeset-login .login-message {
+            font-size: 14px;
+        }        .changeset-browser-title .x-panel-body {
+            font-size: 18px;
+        }        .changeset-files-grid .x-panel-body {
+            border-bottom: 1px solid #999;
+            border-top: 1px solid #999 !important;
+        }
+        .changeset-summary, .changeset-summary .x-panel-body {
+            background-color: #eee;
+        }
+        
+        .changeset-summary {
+            border-color: #999;
+        }
+        
+        .changeset-summary p {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .changeset-summary .x-toolbar-docked-bottom {
+            border: 0;
+            background-color: transparent;
+        }
+        
+        .changeset-summary .x-toolbar-docked-bottom .x-toolbar-item {
+            background-color: #aaa;
+            font-size: 12px;
+        }
+        
+        .changeset-summary .x-toolbar-docked-bottom .x-toolbar-item:hover {
+            cursor: default;
+        }        .app .x-panel-body-default {
+            font-size: 14px;
+        }
+        
+        .app .x-panel-header-text {
+            font-size: 14px;
+        }
+        
+        .app .x-grid-cell-inner, .app .x-column-header-text {
+            margin: 4px 2px;
+            font-size: 12px;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body></body>
+</html>

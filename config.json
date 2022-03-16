@@ -1,0 +1,44 @@
+{
+    "name": "RallyGithub",
+    "className": "CustomApp",
+    "sdk": "2.0p5",
+    "javascript": [
+        "js-lib/google-code-prettify/prettify.js",
+
+        "changeset/model/Branch.js",
+        "changeset/model/Comment.js",
+        "changeset/model/Commit.js",
+        "changeset/model/ChangesetFile.js",
+        "changeset/model/Organization.js",
+        "changeset/model/Repository.js",
+
+        "changeset/data/CommentLocator.js",
+        "changeset/data/github/Proxy.js",
+        "changeset/data/github/Adapter.js",
+        "changeset/data/github/CommitStore.js",
+
+        "changeset/ui/AddComment.js",
+        "changeset/ui/Avatar.js",
+        "changeset/ui/Login.js",
+        "changeset/ui/ChangesetFilter.js",
+        "changeset/ui/ChangesetFileDiff.js",
+        "changeset/ui/ChangesetGrid.js",
+        "changeset/ui/ChangesetFilesGrid.js",
+        "changeset/ui/ChangesetSummary.js",
+        "changeset/ui/Changeset.js",
+        "changeset/ui/ChangesetBrowser.js",
+
+        "App.js"
+    ],
+    "css": [
+        "js-lib/google-code-prettify/prettify.css",
+
+        "changeset/resources/css/addcomment.css",
+        "changeset/resources/css/changesetfilediff.css",
+        "changeset/resources/css/changesetlogin.css",
+        "changeset/resources/css/changesetbrowser.css",
+        "changeset/resources/css/changesetfilesgrid.css",
+        "changeset/resources/css/changesetsummary.css",
+        "app.css"
+    ]
+}

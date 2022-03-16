@@ -1,0 +1,86 @@
+.changeset-file-diff {
+    margin-top: 16px;
+    border: 1px solid #aaa;
+}
+
+.changeset-file-diff table .prettyprint {
+    border: 0;
+}
+
+.changeset-file-diff table {
+    width: 100%;
+}
+
+.changeset-file-diff tr td, .changeset-file-diff tr th {
+    padding: 2px;
+    font-size: 10px;
+}
+
+.changeset-file-diff tr th {
+    text-align: right;
+    background-color: #eee;
+    border-right: 1px solid #aaa;
+    width: 35px;
+}
+
+.changeset-file-diff .x-toolbar.x-docked-top {
+    background-color: #eee;
+}
+
+.changeset-file-diff .x-toolbar.x-docked-top .x-toolbar-item {
+    background: transparent;
+    font-size: 16px;
+    cursor: default;
+}
+
+.changeset-file-diff .line-add, .changeset-file-diff .line-add th {
+    background-color: #DFD;
+}
+
+.changeset-file-diff .line-remove, .changeset-file-diff .line-remove th {
+    background-color: #FDD;
+}
+
+.changeset-file-diff .line-diff, .changeset-file-diff .line-diff th {
+    background-color: #DDF;
+}
+
+.changeset-file-diff .line-comment, .changeset-file-diff .line-comment th {
+    background-color: #fff9b1;
+}
+
+.changeset-file-diff .line-comment {
+    border: 1px solid #aaa;
+    border-left: 0;
+    border-right: 0;
+}
+
+.changeset-file-diff .line-comment th {
+    font-size: 12px;
+}
+
+.changeset-comment {
+    margin: 5px;
+}
+
+.changeset-comment .changeset-summary .x-panel-body {
+    border: 0;
+}
+
+.changeset-file-diff .line-selected, .changeset-file-diff .line-selected th {
+    background: #eff8fb;
+}
+
+.changeset-file-diff .line-wrapper {
+    position: relative;
+}
+
+.changeset-file-diff .add-comment-icon {
+    position: absolute;
+    top: 2px;
+    left: 1px;
+}
+
+.changeset-file-diff .add-comment-icon-selected {
+    cursor: pointer;
+}
